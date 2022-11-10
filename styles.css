@@ -20,11 +20,20 @@ button {
     border-radius: 30px;
 }
 
-div.cards {
-    width: 50%;
-    height: 50%;
+ul li {
+    list-style: none;
+    padding: 5% 40%;
+    border: 1px #000 solid;
     background-color: white;
+}
+
+div.cards {
+    width: 33.33%;
+    height: 100%;
     color: black;
     align-content: center;
     text-align: center;
+    margin: 1% 33.33%;
+    display: flex;
+    justify-content: center;
 }
