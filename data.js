@@ -1,4 +1,5 @@
 let smashlist = document.getElementById("smashlist")
+let factionName = document.getElementById('factionName')
 
 let cardData = [
     {
@@ -528,15 +529,17 @@ let cardData = [
     }
 ]
 
+let chosenFaction = "Ancient Egyptians"
 
+factionName.textContent = chosenFaction
 
 cardData.forEach(function(card) {
     console.log(card);
-    if (card.cardFaction == "Dinosaurs") {
+    if (card.cardFaction == chosenFaction) {
     let newFaction = document.createElement('li')
     newFaction.textContent = card.cardName
     smashlist.appendChild(newFaction)
     } else {
-        console.log("Not a Dino!")
+        console.log('Not a Dino!')
     }
 })

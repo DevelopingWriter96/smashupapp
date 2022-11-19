@@ -20,13 +20,23 @@ button {
     border-radius: 30px;
 }
 
+div {
+    width: 30%;
+    margin: 1% 35%;
+}
+
+h2 {
+    margin-bottom: 2%;
+}
+
 ul li {
     list-style: none;
-    width: 100%;
+    align-self: center;
     border: 1px #000 solid;
     background-color: white;
     text-align: center;
-    padding: 5%;
+    padding: 1% 5%;
+    color: black;
 }
 
     
