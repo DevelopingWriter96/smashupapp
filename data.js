@@ -529,17 +529,53 @@ let cardData = [
     }
 ]
 
-let chosenFaction = "Ancient Egyptians"
+let chosenFaction = "Dinosaurs"
+let chosenFaction2 = "Ancient Egyptians"
 
-factionName.textContent = chosenFaction
+function smashItUp() {
+    cardData.forEach(function(card) {
+        smashlist.nnerHTML = null;
+        console.log(card);
+        if (card.cardFaction == chosenFaction || card.cardFaction == chosenFaction2) {
+        let newFaction = document.createElement('li')
+        newFaction.textContent = card.cardName
+        smashlist.appendChild(newFaction)
+        } else {
+            console.log('Not in the Smash up!')
+        }
+    })
+}
 
-cardData.forEach(function(card) {
-    console.log(card);
-    if (card.cardFaction == chosenFaction) {
-    let newFaction = document.createElement('li')
-    newFaction.textContent = card.cardName
-    smashlist.appendChild(newFaction)
-    } else {
-        console.log('Not a Dino!')
-    }
-})
+function factionSort() {
+        factionName.textContent = card.cardFaction
+        smashlist.innerHTML = null;
+        cardData.forEach(function(card) {
+        console.log(card);
+        if (card.cardFaction == chosenFaction) {
+        let newFaction = document.createElement('li')
+        newFaction.textContent = card.cardName
+        smashlist.appendChild(newFaction)
+        } else {
+            console.log('Not in the Smash up!')
+        }
+    })
+}
+
+// factionSort()
+
+function favoriteSort() {
+    factionName.textContent = "Favorites"
+    smashlist.innerHTML = null;
+    cardData.forEach(function(card) {
+        console.log(card);
+        if (card.favorite = true) {
+        let newFaction = document.createElement('li')
+        newFaction.textContent = card.cardName
+        smashlist.appendChild(newFaction)
+        } else {
+            console.log('Not in the Smash up!')
+        }
+    })
+}
+
+favoriteSort()
