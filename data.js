@@ -160,7 +160,7 @@ let cardData = [
         cardPower: 2,
         cardType: "Minion",
         cardText: "Ongoing: After this minion is destroyed or discarded, place a +1 counter on one of your minions.",
-        cardFaction: "Mad Scientist",
+        cardFaction: "Mad Scientists",
         numberInFaction: 4,
         owned: false,
         favorite: false
@@ -529,8 +529,21 @@ let cardData = [
     }
 ]
 
+let factions = []
 let chosenFaction = "Dinosaurs"
 let chosenFaction2 = "Ancient Egyptians"
+
+function getFactions() {
+    cardData.forEach(function(card) {
+        console.log(card.cardFaction);
+        if (factions.includes(card.cardFaction) == false) {
+            factions.push(card.cardFaction)
+        }
+    })
+    console.log(factions)
+}
+
+getFactions()
 
 function smashItUp() {
     cardData.forEach(function(card) {
@@ -546,8 +559,10 @@ function smashItUp() {
     })
 }
 
+// smashItUp();
+
 function factionSort() {
-        factionName.textContent = card.cardFaction
+        factionName.textContent = chosenFaction;
         smashlist.innerHTML = null;
         cardData.forEach(function(card) {
         console.log(card);
@@ -568,7 +583,7 @@ function favoriteSort() {
     smashlist.innerHTML = null;
     cardData.forEach(function(card) {
         console.log(card);
-        if (card.favorite = true) {
+        if (card.favorite == true) {
         let newFaction = document.createElement('li')
         newFaction.textContent = card.cardName
         smashlist.appendChild(newFaction)
@@ -578,4 +593,17 @@ function favoriteSort() {
     })
 }
 
-favoriteSort()
+// favoriteSort()
+
+function displayFaction() {
+    factionName.textContent = "Factions"
+    smashlist.innerHTML = null;
+    factions.forEach(function(faction) {
+        console.log(faction);
+        let newFaction = document.createElement('li')
+        newFaction.textContent = faction
+        smashlist.appendChild(newFaction)
+    })
+}
+
+displayFaction()
