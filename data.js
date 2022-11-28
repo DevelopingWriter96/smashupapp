@@ -546,8 +546,9 @@ function getFactions() {
 getFactions()
 
 function smashItUp() {
+    factionName.textContent = `${chosenFaction} and ${chosenFaction2}`
+    smashlist.innerHTML = null;
     cardData.forEach(function(card) {
-        smashlist.nnerHTML = null;
         console.log(card);
         if (card.cardFaction == chosenFaction || card.cardFaction == chosenFaction2) {
         let newFaction = document.createElement('li')
@@ -576,7 +577,7 @@ function factionSort() {
     })
 }
 
-// factionSort()
+factionSort()
 
 function favoriteSort() {
     factionName.textContent = "Favorites"
@@ -606,4 +607,4 @@ function displayFaction() {
     })
 }
 
-displayFaction()
+// displayFaction()
