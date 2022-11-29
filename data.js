@@ -530,8 +530,8 @@ let cardData = [
 ]
 
 let factions = []
-let chosenFaction = "Dinosaurs"
-let chosenFaction2 = "Ancient Egyptians"
+let chosenFaction = "Ancient Egyptians"
+let chosenFaction2 = "Dinosaurs"
 
 function getFactions() {
     cardData.forEach(function(card) {
@@ -582,15 +582,17 @@ factionSort()
 function favoriteSort() {
     factionName.textContent = "Favorites"
     smashlist.innerHTML = null;
+    let favoriteFactions = [];
     cardData.forEach(function(card) {
-        console.log(card);
-        if (card.favorite == true) {
-        let newFaction = document.createElement('li')
-        newFaction.textContent = card.cardName
-        smashlist.appendChild(newFaction)
-        } else {
-            console.log('Not in the Smash up!')
+        console.log(card.cardFaction);
+        if (favoriteFactions.includes(card.cardFaction) == false && card.favorite == true) {
+            console.log(card.cardFaction)
+            favoriteFactions.push(card.cardFaction)
+            let newFaction = document.createElement('li')
+            newFaction.textContent = card.cardFaction
+            smashlist.appendChild(newFaction)
         }
+        
     })
 }
 
