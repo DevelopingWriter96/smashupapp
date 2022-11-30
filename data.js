@@ -577,7 +577,7 @@ function factionSort() {
     })
 }
 
-factionSort()
+// factionSort()
 
 function favoriteSort() {
     factionName.textContent = "Favorites"
@@ -598,6 +598,19 @@ function favoriteSort() {
 
 // favoriteSort()
 
+function displayOwned() {
+    console.log(cardData);
+    factionName.textContent = "Collection"
+    smashlist.innerHTML = null;
+    cardData.forEach(function(card) {
+        if (card.owned == true) {
+        let newCard = document.createElement('li')
+        newCard.textContent = card.cardName
+        smashlist.appendChild(newCard)
+        }
+    })
+}
+
 function displayFaction() {
     factionName.textContent = "Factions"
     smashlist.innerHTML = null;
@@ -609,4 +622,4 @@ function displayFaction() {
     })
 }
 
-// displayFaction()
+displayFaction()
