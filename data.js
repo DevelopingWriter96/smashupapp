@@ -1,5 +1,6 @@
 let smashlist = document.getElementById("smashlist")
 let factionName = document.getElementById('factionName')
+let mainDiv = document.getElementById('mainDiv')
 
 let cardData = [
     {
@@ -622,4 +623,14 @@ function displayFaction() {
     })
 }
 
-displayFaction()
+// displayFaction()
+
+function smashList() {
+    displayFaction()
+    factionName.textContent = "Make a Smash!"
+    let smashButton = document.createElement('button')
+    smashButton.textContent = "Smash It Up!"
+    mainDiv.appendChild(smashButton)
+}
+
+smashList()
