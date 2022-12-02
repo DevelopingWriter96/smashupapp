@@ -11,7 +11,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 2,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, You did it again" 
     },
 
     {
@@ -22,7 +23,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -33,7 +35,20 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Argonaut",
+        cardPower: 2,
+        cardType: "Minion",
+        cardText: "Trigger all abilities that would trigger from you planning an action. Special: Any time you can play an action, you can play this card instead.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 4,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your fault"
     },
 
     {
@@ -44,7 +59,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 3,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -55,7 +71,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 2,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -66,7 +83,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, You did it again"
     },
 
     {
@@ -77,7 +95,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -88,7 +107,32 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
+    },
+
+    {
+        cardName: "Bring Down the Walls",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: Before this base Scores, you may play a minion here.",
+        cardFaction: "Dragons",
+        numberInFaction: 2,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Burn it Down",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Destroy a base and any actions played on it. Replace it with the top card of the base deck or a base from the discard pile. All minions from the original base remain.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -99,7 +143,32 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Dangerous Ground",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: Other Players must discard a card to playa minion here.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Dragon Lands",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: Your minions here have +1 power. Special: Before a base scores, you may play this card there.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -108,8 +177,142 @@ let cardData = [
         cardType: "Minion",
         cardText: "Draw a card.",
         cardFaction: "Wizards",
+        numberInFaction: 3,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Favor of Aphrodite",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play an extra minion.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1, 
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Apollo",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Draw a card and play an extra action",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Athena",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Reveal the top 5 cards of your deck. You may place one of the revealed actions into your hand, and return the rest to the top of your deck in any order.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Ares",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "One of your minions gains +3 power until the end of the turn",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Dionysus",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "One of your minions gains +1 power until the end of the turn. Play an extra action. You may place this card on top of your deck instead of the discard pile.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Hades",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Place an action card from your discard pile into your hand.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Hera",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Place a +1 counter on up to two of your minions.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Hermes",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play two extra actions",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Posideon",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Shuffle up to three cards from you discard pile into your deck.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Favor of Zeus",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Reduce the breakpoint by 5 until the end of the turn.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
+    },
+
+    {
+        cardName: "Flank Attack",
+        cardPower: 0,
+        cardType: "Minion",
+        cardText: "Search your deck and/or discard pile for an action that can be played on a base and play it as an extra action. Shuffle your deck if you searched it.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -120,7 +323,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -131,7 +335,44 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
+    },
+
+    {
+        cardName: "Great Wyrm",
+        cardPower: 5,
+        cardType: "Minion",
+        cardText: "Ongoing: Other players here are awarded 1 less VP from this base when it scores.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Hatchling",
+        cardPower: 2,
+        cardType: "Minion",
+        cardText: "Ongoing: After another player plays or moves a minion here, it gets -1 power until the end of turn.",
+        cardFaction: "Dragons",
+        numberInFaction: 4,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Heracles",
+        cardPower: 4,
+        cardType: "Minion",
+        cardText: "Ongoing: After any player plays an action, this minion gains +1 power until the end of turn.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
     },
 
     {
@@ -142,7 +383,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -153,7 +395,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 2,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -164,7 +407,32 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 4,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
+    },
+
+    {
+        cardName: "Imperial Dragon",
+        cardPower: 3,
+        cardType: "Minion",
+        cardText: "Ongoing: After another player plays or moves a minion here, draw a card.",
+        cardFaction: "Dragons",
+        numberInFaction: 3,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Intimidating Presence",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: Other players' minions here have -1 power. Special: Before a base scores, you may play this card there.",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -175,7 +443,18 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
+    },
+
+    {
+        cardName: "Jason",
+        cardPower: 4,
+        cardType: "Minion",
+        cardText: "Ongoing: After the first time you play an action each turn, choose a base. All of your minions there gain +1 power until the end of the turn.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+
     },
 
     {
@@ -186,7 +465,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -197,7 +477,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -208,7 +489,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 3,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -219,7 +501,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 2,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -230,7 +513,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -241,7 +525,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -252,7 +537,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -263,7 +549,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 4,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -274,7 +561,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -285,7 +573,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -296,7 +585,20 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 4,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Odysseus",
+        cardPower: 5,
+        cardType: "Minion",
+        cardText: "Ongoing: After you play an action, place a +1 power counter on one of your minions.",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 1,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
     },
 
     {
@@ -307,7 +609,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -318,7 +621,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -329,7 +633,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -340,7 +645,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 2,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -351,7 +657,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 3,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -362,7 +669,32 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Raze",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: This base's ability is cancelled",
+        cardFaction: "Dragons",
+        numberInFaction: 1,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
+    },
+
+    {
+        cardName: "Ruins",
+        cardPower: 0,
+        cardType: "Action",
+        cardText: "Play on a base. Ongoing: Other players here are awarded 1 less VP from when it scores.",
+        cardFaction: "Dragons",
+        numberInFaction: 2,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -373,7 +705,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -384,7 +717,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -395,7 +729,20 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
+    },
+
+    {
+        cardName: "Spartan",
+        cardPower: 3,
+        cardType: "Minion",
+        cardText: "Ongoing: Place a +1 power counter on this minion after the first time that you play an action on your turn",
+        cardFaction: "Mythic Greeks",
+        numberInFaction: 3,
+        owned: false,
+        favorite: false,
+        cardSet: "It's your Fault"
     },
 
     {
@@ -406,7 +753,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -417,7 +765,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -428,7 +777,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -439,7 +789,8 @@ let cardData = [
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -450,7 +801,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 2,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     },
 
     {
@@ -461,7 +813,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -472,7 +825,8 @@ let cardData = [
         cardFaction: "Mad Scientists",
         numberInFaction: 2,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Monster Smash"
     },
 
     {
@@ -483,7 +837,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -494,7 +849,8 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 4,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
@@ -505,17 +861,32 @@ let cardData = [
         cardFaction: "Dinosaurs",
         numberInFaction: 1,
         owned: true,
-        favorite: true
+        favorite: true,
+        cardSet: "Core Smash Up"
     },
 
     {
         cardName: "Winds of Change",
         cardPower: 0,
+        cardType: "Action",
         cardText: "Shuffle your hand into your deck and draw five cards. You may play an extra action.",
         cardFaction: "Wizards",
         numberInFaction: 1,
         owned: false,
-        favorite: false
+        favorite: false,
+        cardSet: "Core Smash Up"
+    },
+
+    {
+        cardName: "Wyvern",
+        cardPower: 4,
+        cardType: "Minion",
+        cardText: "Destroy a minion here of power 3 or less. Talent: Reduce the breakpoint of this base by 3 until the end of the turn.",
+        cardFaction: "Dragons",
+        numberInFaction: 2,
+        owned: true,
+        favorite: true,
+        cardSet: "It's Your Fault"
     },
 
     {
@@ -526,7 +897,8 @@ let cardData = [
         cardFaction: "Ancient Egyptians",
         numberInFaction: 1,
         owned: true,
-        favorite: false
+        favorite: false,
+        cardSet: "Oops, you did it again"
     }
 ]
 
