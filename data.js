@@ -1,4 +1,3 @@
-let smashlist = document.getElementById("smashlist")
 let factionName = document.getElementById('factionName')
 let mainDiv = document.getElementById('mainDiv')
 
@@ -918,26 +917,20 @@ function getFactions() {
 
 getFactions()
 
-function smashItUp() {
-    factionName.textContent = `${chosenFaction} and ${chosenFaction2}`
-    smashlist.innerHTML = null;
-    cardData.forEach(function(card) {
-        console.log(card);
-        if (card.cardFaction == chosenFaction || card.cardFaction == chosenFaction2) {
-        let newFaction = document.createElement('li')
-        newFaction.textContent = card.cardName
-        smashlist.appendChild(newFaction)
-        } else {
-            console.log('Not in the Smash up!')
-        }
-    })
-}
+// function smashItUp() {
+    
+// }
 
 // smashItUp();
 
 function factionSort() {
+        mainDiv.innerHTML = null;
+        let factionName = document.createElement('h2');
         factionName.textContent = chosenFaction;
-        smashlist.innerHTML = null;
+        let cards = document.createElement('div')
+        cards.setAttribute('id', 'smashList')
+        let smashlist = document.createElement('ul')
+        smashlist.setAttribute('id', 'smashlist')
         cardData.forEach(function(card) {
         console.log(card);
         if (card.cardFaction == chosenFaction) {
@@ -948,13 +941,21 @@ function factionSort() {
             console.log('Not in the Smash up!')
         }
     })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
 }
 
 // factionSort()
 
 function favoriteSort() {
+    mainDiv.innerHTML = null;
+    let factionName = document.createElement('h2');
     factionName.textContent = "Favorites"
-    smashlist.innerHTML = null;
+    let cards = document.createElement('div')
+    cards.setAttribute('id', 'smashList')
+    let smashlist = document.createElement('ul')
+    smashlist.setAttribute('id', 'smashlist')
     let favoriteFactions = [];
     cardData.forEach(function(card) {
         console.log(card.cardFaction);
@@ -967,14 +968,21 @@ function favoriteSort() {
         }
         
     })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
 }
 
 // favoriteSort()
 
 function displayOwned() {
-    console.log(cardData);
+    mainDiv.innerHTML = null;
+    let factionName = document.createElement('h2');
     factionName.textContent = "Collection"
-    smashlist.innerHTML = null;
+    let cards = document.createElement('div')
+    cards.setAttribute('id', 'smashList')
+    let smashlist = document.createElement('ul')
+    smashlist.setAttribute('id', 'smashlist')
     cardData.forEach(function(card) {
         if (card.owned == true) {
         let newCard = document.createElement('li')
@@ -982,27 +990,59 @@ function displayOwned() {
         smashlist.appendChild(newCard)
         }
     })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
 }
 
 function displayFaction() {
+    mainDiv.innerHTML = null;
+    let factionName = document.createElement('h2');
     factionName.textContent = "Factions"
-    smashlist.innerHTML = null;
+    let cards = document.createElement('div')
+    cards.setAttribute('id', 'smashList')
+    let smashlist = document.createElement('ul')
+    smashlist.setAttribute('id', 'smashlist')
     factions.forEach(function(faction) {
         console.log(faction);
         let newFaction = document.createElement('li')
         newFaction.textContent = faction
         smashlist.appendChild(newFaction)
     })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
 }
 
 // displayFaction()
 
 function smashList() {
     displayFaction()
-    factionName.textContent = "Make a Smash!"
     let smashButton = document.createElement('button')
     smashButton.textContent = "Smash It Up!"
     mainDiv.appendChild(smashButton)
+    smashButton.addEventListener('click', () => {
+    mainDiv.innerHTML = null;
+    let factionName = document.createElement('h2');
+    factionName.textContent = `${chosenFaction} and ${chosenFaction2}`
+    let cards = document.createElement('div')
+    cards.setAttribute('id', 'smashList')
+    let smashlist = document.createElement('ul')
+    smashlist.setAttribute('id', 'smashlist')
+    cardData.forEach(function(card) {
+        console.log(card);
+        if (card.cardFaction == chosenFaction || card.cardFaction == chosenFaction2) {
+        let newFaction = document.createElement('li')
+        newFaction.textContent = card.cardName
+        smashlist.appendChild(newFaction)
+        } else {
+            console.log('Not in the Smash up!')
+        }
+    })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
+    })
 }
 
 smashList()
