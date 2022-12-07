@@ -51,3 +51,7 @@ div.cards {
     display: flex;
     justify-content: center;
 }
+
+i {
+   margin-left: 1%; 
+}
