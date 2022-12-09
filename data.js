@@ -902,7 +902,7 @@ let cardData = [
 ]
 
 let factions = []
-let chosenFaction = "Ancient Egyptians"
+// let chosenFaction = "Ancient Egyptians"
 let chosenFaction2 = "Dinosaurs"
 
 function getFactions() {
@@ -917,7 +917,42 @@ function getFactions() {
 
 getFactions()
 
-function factionSort() {
+function cardDetails(chosenCard) {
+    mainDiv.innerHTML = null;
+    let factionName = document.createElement('h2');
+    factionName.textContent = "Card Details"
+    let cards = document.createElement('div')
+    cards.setAttribute('id', 'smashList')
+    let smashlist = document.createElement('ul')
+    smashlist.setAttribute('id', 'smashlist')
+    cardData.forEach(function(card) {
+        if (chosenCard == card.cardName) {
+            let cardName = document.createElement('li')
+            cardName.textContent = `Name: ${card.cardName}`;
+            smashlist.appendChild(cardName)
+            let cardPower = document.createElement('li')
+            cardPower.textContent = `Power: ${card.cardPower}`;
+            smashlist.appendChild(cardPower)
+            let cardType = document.createElement('li')
+            cardType.textContent = `Type: ${card.cardType}`;
+            smashlist.appendChild(cardType)
+            let cardText = document.createElement('li')
+            cardText.textContent = card.cardText;
+            smashlist.appendChild(cardText)
+            let cardFaction = document.createElement('li')
+            cardFaction.textContent = `Faction: ${card.cardFaction}`;
+            smashlist.appendChild(cardFaction)
+            let cardSet = document.createElement('li')
+            cardSet.textContent = `Set: ${card.cardSet}`;
+            smashlist.appendChild(cardSet)
+        }
+    })
+    mainDiv.appendChild(factionName);
+    cards.appendChild(smashlist);
+    mainDiv.appendChild(cards)
+}
+
+function factionSort(chosenFaction) {
         mainDiv.innerHTML = null;
         let factionName = document.createElement('h2');
         factionName.textContent = chosenFaction;
@@ -929,7 +964,17 @@ function factionSort() {
         console.log(card);
         if (card.cardFaction == chosenFaction) {
         let newFaction = document.createElement('li')
-        newFaction.textContent = card.cardName
+        let newFactionText = document.createElement('p')
+        newFactionText.textContent = card.cardName
+        let Card = card.cardName
+        newFactionText.addEventListener('click', () => {
+            cardDetails(Card)
+            let smashButton = document.createElement('button')
+            smashButton.textContent = "Return to Faction"
+            smashButton.addEventListener('click', () => { factionSort(card.cardFaction) })
+            mainDiv.appendChild(smashButton)
+        })
+        newFaction.appendChild(newFactionText)
         smashlist.appendChild(newFaction)
         } else {
             console.log('Not in the Smash up!')
@@ -940,7 +985,7 @@ function factionSort() {
     mainDiv.appendChild(cards)
 }
 
-// factionSort()
+// factionSort("Dragons")
 
 function favoriteSort() {
     mainDiv.innerHTML = null;
@@ -950,24 +995,28 @@ function favoriteSort() {
     cards.setAttribute('id', 'smashList')
     let smashlist = document.createElement('ul')
     smashlist.setAttribute('id', 'smashlist')
-    let favoriteFactions = [];
     cardData.forEach(function(card) {
-        console.log(card.cardFaction);
-        if (favoriteFactions.includes(card.cardFaction) == false && card.favorite == true) {
-            console.log(card.cardFaction)
-            favoriteFactions.push(card.cardFaction)
-            let newFaction = document.createElement('li')
-            newFaction.textContent = card.cardFaction
-            smashlist.appendChild(newFaction)
+        if (card.favorite == true) {
+        let newCard = document.createElement('li')
+        let newCardText = document.createElement('p')
+        newCardText.textContent = card.cardName
+        newCardText.addEventListener('click', () => {
+            cardDetails(card.cardName)
+            let smashButton = document.createElement('button')
+            smashButton.textContent = "Return to Favorites"
+            smashButton.addEventListener('click', () => { favoriteSort() })
+            mainDiv.appendChild(smashButton)
+        })
+        newCard.appendChild(newCardText)
+        smashlist.appendChild(newCard)
         }
-        
     })
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards)
 }
 
-// favoriteSort()
+favoriteSort()
 
 function displayOwned() {
     mainDiv.innerHTML = null;
@@ -980,7 +1029,16 @@ function displayOwned() {
     cardData.forEach(function(card) {
         if (card.owned == true) {
         let newCard = document.createElement('li')
-        newCard.textContent = card.cardName
+        let newCardText = document.createElement('p')
+        newCardText.textContent = card.cardName
+        newCardText.addEventListener('click', () => {
+            cardDetails(card.cardName)
+            let smashButton = document.createElement('button')
+            smashButton.textContent = "Return to Collection"
+            smashButton.addEventListener('click', () => { displayOwned() })
+            mainDiv.appendChild(smashButton)
+        })
+        newCard.appendChild(newCardText)
         smashlist.appendChild(newCard)
         }
     })
@@ -1048,41 +1106,6 @@ function smashList() {
 }
 
 // smashList()
-
-function cardDetails(chosenCard) {
-    mainDiv.innerHTML = null;
-    let factionName = document.createElement('h2');
-    factionName.textContent = "Card Details"
-    let cards = document.createElement('div')
-    cards.setAttribute('id', 'smashList')
-    let smashlist = document.createElement('ul')
-    smashlist.setAttribute('id', 'smashlist')
-    cardData.forEach(function(card) {
-        if (chosenCard == card.cardName) {
-            let cardName = document.createElement('li')
-            cardName.textContent = `Name: ${card.cardName}`;
-            smashlist.appendChild(cardName)
-            let cardPower = document.createElement('li')
-            cardPower.textContent = `Power: ${card.cardPower}`;
-            smashlist.appendChild(cardPower)
-            let cardType = document.createElement('li')
-            cardType.textContent = `Type: ${card.cardType}`;
-            smashlist.appendChild(cardType)
-            let cardText = document.createElement('li')
-            cardText.textContent = card.cardText;
-            smashlist.appendChild(cardText)
-            let cardFaction = document.createElement('li')
-            cardFaction.textContent = `Faction: ${card.cardFaction}`;
-            smashlist.appendChild(cardFaction)
-            let cardSet = document.createElement('li')
-            cardSet.textContent = `Set: ${card.cardSet}`;
-            smashlist.appendChild(cardSet)
-        }
-    })
-    mainDiv.appendChild(factionName);
-    cards.appendChild(smashlist);
-    mainDiv.appendChild(cards)
-}
 
 // cardDetails("Great Wyrm")
 
