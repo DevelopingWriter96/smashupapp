@@ -55,3 +55,7 @@ div.cards {
 i {
    margin-left: 1%; 
 }
+
+.selected {
+    color: #00f;
+}

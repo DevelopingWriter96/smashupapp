@@ -902,8 +902,7 @@ let cardData = [
 ]
 
 let factions = []
-// let chosenFaction = "Ancient Egyptians"
-let chosenFaction2 = "Dinosaurs"
+
 
 function getFactions() {
     cardData.forEach(function(card) {
@@ -981,7 +980,9 @@ function smashItUp(chosenFaction, chosenFaction2) {
 })
     let smashButton = document.createElement('button')
     smashButton.textContent = "Make another Smash Up"
-    smashButton.addEventListener('click', () => { smashList() })
+    smashButton.addEventListener('click', () => { 
+        smashList() 
+    })
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards)
@@ -1019,6 +1020,10 @@ function factionSort(chosenFaction) {
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards)
+    let smashButton = document.createElement('button')
+    smashButton.textContent = "Return to Factions"
+    smashButton.addEventListener('click', () => { displayFaction() })
+    mainDiv.appendChild(smashButton)
 }
 
 // factionSort("Dragons")
@@ -1050,6 +1055,10 @@ function favoriteSort() {
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards);
+    let smashButton = document.createElement('button')
+    smashButton.textContent = "Return to Factions"
+    smashButton.addEventListener('click', () => { displayFaction() })
+    mainDiv.appendChild(smashButton)
 }
 
 // favoriteSort()
@@ -1095,24 +1104,44 @@ function displayFaction() {
         console.log(faction);
         let newFaction = document.createElement('li')
         let newFactionText = document.createElement('p')
+        newFactionText.addEventListener ('click', () => {
+            factionSort(faction)
+        })
         newFactionText.textContent = faction
         smashlist.appendChild(newFaction)
         let ownedIcon = document.createElement('i')
         ownedIcon.className = "fa-regular fa-square-check"
-        newFactionText.appendChild(ownedIcon)
+        ownedIcon.addEventListener ('click', () => {
+            if (ownedIcon.className == "fa-regular fa-square-check") {
+                ownedIcon.className = "fa-solid fa-square-check"
+            } else {
+                ownedIcon.className = "fa-regular fa-square-check"
+            }
+        })
+        newFaction.appendChild(newFactionText)
+        newFaction.appendChild(ownedIcon)
         let favoriteIcon = document.createElement('i')
         favoriteIcon.className = "fa-regular fa-heart"
-        newFactionText.appendChild(favoriteIcon)
-        newFaction.appendChild(newFactionText)
+        favoriteIcon.addEventListener ('click', () => {
+            if (favoriteIcon.className == "fa-regular fa-heart") {
+                favoriteIcon.className = "fa-solid fa-heart"
+            } else {
+                favoriteIcon.className = "fa-regular fa-heart"
+            }
+        })
+        newFaction.appendChild(favoriteIcon)
     })
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards)
+
 }
 
 // displayFaction()
 
 function smashList() {
+    let chosenFaction = ""
+    let chosenFaction2 = ""
     mainDiv.innerHTML = null;
     let factionName = document.createElement('h2');
     factionName.textContent = "Make a Smash Up!"
@@ -1126,11 +1155,40 @@ function smashList() {
         let newFactionText = document.createElement('p')
         newFactionText.textContent = faction
         newFaction.appendChild(newFactionText)
+        newFaction.addEventListener('click', () => {
+            if (newFaction.className !== "selected") {
+                if (chosenFaction == "") {
+                    chosenFaction = faction
+                    newFaction.className = "selected"
+                } else {
+                    if (chosenFaction !== "" && chosenFaction2 == "") {
+                        chosenFaction2 = faction
+                        newFaction.className = "selected"
+                    }  else {
+                        alert("Only two factions are allowed!")
+                    }
+                }
+            } else {
+                if (chosenFaction !== "") {
+                    chosenFaction = ""
+                    newFaction.className = ""
+                } else {
+                    if (chosenFaction == "" && chosenFaction2 !== "") {
+                        chosenFaction2 = ""
+                        newFaction.className = ""
+                    } 
+                }
+            }
+        })
         smashlist.appendChild(newFaction)
     })
     let smashButton = document.createElement('button')
     smashButton.textContent = "Smash It Up!"
-    smashButton.addEventListener('click', () => { smashItUp('Dinosaurs', 'Dragons') })
+    smashButton.addEventListener('click', () => { 
+        if (chosenFaction !== "" || chosenFaction2 !== "") {
+        smashItUp(chosenFaction, chosenFaction2) 
+        }
+    })
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards)
