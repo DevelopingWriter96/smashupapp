@@ -935,7 +935,7 @@ function getOwnFactions() {
 getOwnFactions()
 
 function getFavFactions() {
-    let favoriteFaction = []
+    favoriteFaction = []
     cardData.forEach(function(card) {
         console.log(card.cardFaction);
         if (card.favorite == true) {
@@ -1167,7 +1167,7 @@ function displayFaction() {
         newFaction.appendChild(ownedIcon)
         let favoriteIcon = document.createElement('i')
         console.log(favoriteFaction.includes(faction))
-        if (favoriteFaction.includes(faction)) {
+        if (favoriteFaction.includes(faction) == true) {
             favoriteIcon.className = "fa-solid fa-heart"
         } else {
             favoriteIcon.className = "fa-regular fa-heart"
