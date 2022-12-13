@@ -901,8 +901,11 @@ let cardData = [
     }
 ]
 
+let chosenFaction = ""
+let chosenFaction2 = ""
 let factions = []
-
+let ownedFaction = []
+let favoriteFaction = []
 
 function getFactions() {
     cardData.forEach(function(card) {
@@ -915,6 +918,36 @@ function getFactions() {
 }
 
 getFactions()
+
+function getOwnFactions() {
+    ownedFaction = []
+    cardData.forEach(function(card) {
+        console.log(card.cardFaction);
+        if (card.owned == true) {
+            if (ownedFaction.includes(card.cardFaction) == false) {
+                ownedFaction.push(card.cardFaction)
+            }
+        }
+    })
+    console.log(ownedFaction) 
+}
+
+getOwnFactions()
+
+function getFavFactions() {
+    let favoriteFaction = []
+    cardData.forEach(function(card) {
+        console.log(card.cardFaction);
+        if (card.favorite == true) {
+            if (favoriteFaction.includes(card.cardFaction) == false) {
+                favoriteFaction.push(card.cardFaction)
+            }
+        }
+    })
+    console.log(favoriteFaction) 
+}
+
+getFavFactions()
 
 function cardDetails(chosenCard) {
     mainDiv.innerHTML = null;
@@ -968,8 +1001,8 @@ function smashItUp(chosenFaction, chosenFaction2) {
         newFactionText.addEventListener('click', () => {
             cardDetails(card.cardName)
             let smashButton = document.createElement('button')
-            smashButton.textContent = "Return to Collection"
-            smashButton.addEventListener('click', () => { displayOwned() })
+            smashButton.textContent = "Return to Smash Up"
+            smashButton.addEventListener('click', () => { smashItUp(chosenFaction, chosenFaction2) })
             mainDiv.appendChild(smashButton)
         })
         newFaction.appendChild(newFactionText)
@@ -1055,10 +1088,6 @@ function favoriteSort() {
     mainDiv.appendChild(factionName);
     cards.appendChild(smashlist);
     mainDiv.appendChild(cards);
-    let smashButton = document.createElement('button')
-    smashButton.textContent = "Return to Factions"
-    smashButton.addEventListener('click', () => { displayFaction() })
-    mainDiv.appendChild(smashButton)
 }
 
 // favoriteSort()
@@ -1110,23 +1139,56 @@ function displayFaction() {
         newFactionText.textContent = faction
         smashlist.appendChild(newFaction)
         let ownedIcon = document.createElement('i')
-        ownedIcon.className = "fa-regular fa-square-check"
+        if (ownedFaction.includes(faction) == true) {
+            ownedIcon.className = "fa-solid fa-square-check"
+        } else {
+            ownedIcon.className = "fa-regular fa-square-check"
+        }
         ownedIcon.addEventListener ('click', () => {
             if (ownedIcon.className == "fa-regular fa-square-check") {
                 ownedIcon.className = "fa-solid fa-square-check"
+                cardData.forEach(function(card) {
+                    if (card.cardFaction == faction) {
+                        card.owned = true;
+                    }
+                    getOwnFactions()
+                })
             } else {
                 ownedIcon.className = "fa-regular fa-square-check"
+                cardData.forEach(function(card) {
+                    if (card.cardFaction == faction) {
+                        card.owned = false;
+                    }
+                    getOwnFactions()
+                })
             }
         })
         newFaction.appendChild(newFactionText)
         newFaction.appendChild(ownedIcon)
         let favoriteIcon = document.createElement('i')
-        favoriteIcon.className = "fa-regular fa-heart"
+        console.log(favoriteFaction.includes(faction))
+        if (favoriteFaction.includes(faction)) {
+            favoriteIcon.className = "fa-solid fa-heart"
+        } else {
+            favoriteIcon.className = "fa-regular fa-heart"
+        }
         favoriteIcon.addEventListener ('click', () => {
             if (favoriteIcon.className == "fa-regular fa-heart") {
                 favoriteIcon.className = "fa-solid fa-heart"
+                cardData.forEach(function(card) {
+                    if (card.cardFaction == faction) {
+                        card.favorite = true;
+                    }
+                    getFavFactions()
+                })
             } else {
                 favoriteIcon.className = "fa-regular fa-heart"
+                cardData.forEach(function(card) {
+                    if (card.cardFaction == faction) {
+                        card.favorite = false;
+                    }
+                    getFavFactions()
+                })
             }
         })
         newFaction.appendChild(favoriteIcon)
